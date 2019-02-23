@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Equipo(models.Model):
 	"""docstring for Equipo"""
 	nombre = models.CharField(max_length=40)

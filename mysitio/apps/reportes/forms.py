@@ -1,12 +1,11 @@
 from django import forms
 
-from apps.reportes.models import Reportes
+from apps.reportes.models import Reportes, Empleados
 
 class ReportesForms(forms.ModelForm):
 
 	class Meta:
 		model = Reportes
-
 		fields = [
 			'fecha_recibido',
 			'No_reporte',
