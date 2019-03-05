@@ -2,6 +2,7 @@ from django import forms
 
 from apps.reportes.models import Reportes, Empleados
 
+
 class ReportesForms(forms.ModelForm):
 
 	class Meta:
@@ -42,7 +43,7 @@ class ReportesForms(forms.ModelForm):
 			'direccion': forms.TextInput(attrs={'class': 'form-control'}),
 			'ciudad': forms.TextInput(attrs={'class': 'form-control'}),
 			'telefono': forms.TextInput(attrs={'class': 'form-control'}),
-			'atendido': forms.Select(attrs={'class': 'form-control'}),
+			'atendido': forms.CheckboxSelectMultiple(),
 			'equipo_recibido': forms.TextInput(attrs={'class': 'form-control'}),
 			'falla_reportada': forms.TextInput(attrs={'class': 'form-control'}),
 			'trabajo_realizado': forms.TextInput(attrs={'class': 'form-control'}),

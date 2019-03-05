@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>No registro</td>
+			<td>Nombre</td>			
+			<td>Modelo</td>
+			<td>Departamento</td>
+			<td>Caracteristicas</td>
+			<td>Fecha recibido</td>
+			
+			
+		</tr>>
+
+
+	</thead>>
+	<tbody>
+		{% if object_list %}
+		{% for reportes in object_list %}
+		<tr>			
+			<td>{{ equipos.No_registro  }}</td>
+			<td>{{ equipos.nombre  }}</td>
+			<td>{{ equipos.modelo  }}</td>
+			<td>{{ equipos.departamento  }}</td>
+			<td>{{ equipos.caracteristas  }}</td>
+			<td>{{ equipos.fecha_recibido  }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'reporte_editar' reportes.No_reporte %}" >Editar</a>
+				<a class="btn btn-danger" href="{% url 'reporte_eliminar' reportes.No_reporte %}" >Eliminar</a>
+			</td>
+
+		</tr>>
+		{% endfor %}
+
+		{% else %}
+		<h1>No Hay registros</h1>
+
+		{% endif %}
+	</tbody>
+
+
+</table>
+
+
+
+{% endblock %}

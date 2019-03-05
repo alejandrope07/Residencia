@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Fecha</td>
+			<td>No registro</td>
+			<td>Cliente</td>
+			<td>Dirección</td>
+			<td>Cuidad</td>
+			<td>Telefono</td>
+			<td>Atendido por</td>
+			<td>Equipo recibido</td>
+			<td>Falla reportada</td>
+			<td>Trabajo realizado</td>
+			<td>Observaciones</td>
+			<td>Acciones</td>
+		</tr>>
+
+	</thead>>
+	<tbody>
+		{% if object_list %}
+		{% for reportes in object_list %}
+		<tr>
+			<td>{{ reportes.fecha_recibido  }}</td>
+			<td>{{ reportes.No_reporte  }}</td>
+			<td>{{ reportes.cliente  }}</td>
+			<td>{{ reportes.direccion  }}</td>
+			<td>{{ reportes.ciudad  }}</td>
+			<td>{{ reportes.telefono  }}</td>
+			<td>{{ reportes.empleados.nombre }}</td>
+			<td>{{ reportes.equipo_recibido  }}</td>
+			<td>{{ reportes.falla_reportada  }}</td>
+			<td>{{ reportes.trabajo_realizado  }}</td>
+			<td>{{ reportes.observaciones  }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'reporte_editar' reportes.No_reporte %}" >Editar</a>
+				<a class="btn btn-danger" href="{% url 'reporte_eliminar' reportes.No_reporte %}" >Eliminar</a>
+			</td>
+
+		</tr>>
+		{% endfor %}
+
+		{% else %}
+		<h1>No Hay registros</h1>
+
+		{% endif %}
+	</tbody>
+
+
+</table>
+
+
+
+{% endblock %}

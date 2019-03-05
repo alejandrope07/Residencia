@@ -18,7 +18,7 @@ class Reportes(models.Model):
 	ciudad = models.CharField(max_length=30)
 	telefono = models.IntegerField()
 	
-	atendido = models.ManyToManyField(Empleados, blank=True)
+	atendido = models.ManyToManyField(Empleados)
 	equipo_recibido = models.CharField(max_length=30)
 	falla_reportada = models.CharField(max_length=40)
 	trabajo_realizado = models.CharField(max_length=80)
