@@ -11,4 +11,3 @@ class Equipo(models.Model):
 	caracteristicas = models.CharField(max_length=50)
 	No_registro = models.CharField(max_length=10, primary_key=True)
 	fecha_recibido = models.DateField()
-	no = models.CharField(max_length=30)
