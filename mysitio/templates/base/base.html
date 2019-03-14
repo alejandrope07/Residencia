@@ -28,7 +28,9 @@
 		                        		<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Registro <span class="caret"></span></a>
 				                        <ul class="dropdown-menu" role="menu">
 				                        	<li>
-				                        		nuevo
+				                        		<a href="{% url 'equipo_nuevo' %}">Nuevo registro</a>
+				                        		<a href="{% url 'equipo_listar' %}">Lista de registros</a>
+
 				                        	</li>
 				                        </ul>
 		                      		</li>
@@ -36,10 +38,10 @@
 			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes<span class="caret"></span></a>
 			                        	<ul class="dropdown-menu" role="menu">
 				                            <li>
-				                        		nuevo
+				                        		<a href="{% url 'reportes_nuevo' %}">Hacer reporte</a>
 				                        	</li>
 				                        	<li>
-				                        		lista
+				                        		<a href="{% url 'reportes_listar' %}">Lista de reportes</a>
 				                        	</li>
 				                      
 			                        	</ul>
@@ -66,17 +68,15 @@
 
 
 {% block header %} 
-<h4> </h4>
+
 {% endblock %}
 
-
-
 {% block content %} 
-<h5> </h5> 
+
 {% endblock %}
 
 {% block footer %} 
- <h5></h5>
+
 {% endblock %}
 
 </div>
@@ -84,7 +84,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% block extrajs %} 
- <h5></h5>
+
 {% endblock %}
 
 

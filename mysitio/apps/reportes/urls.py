@@ -6,7 +6,7 @@ from apps.reportes.views import index, reportes_view, reportes_lista, reportes_e
 urlpatterns = [
     path('', index),
 
-    path('nuevo', ReportesCrear.as_view()),
+    path('nuevo', ReportesCrear.as_view(), name='reportes_nuevo'),
     path('listar', ReportesList.as_view(), name='reportes_listar'),
     path('editar/<int:No_reporte>/', reportes_editar, name='reportes_editar'),
     path('eliminar/<int:pk>/', ReportesDelete.as_view(), name='reportes_eliminar'),
