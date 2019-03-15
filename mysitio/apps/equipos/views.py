@@ -24,17 +24,19 @@ def equipos_view(request):
 
 		return render(request, 'sistema/equipo_form.html', {'form': form})
 
-class EquiposCrear(CreateView):
-	"""docstring for ReportesCrear"""
-	model = Equipo
-	form_class = EquiposForm
-	template_name = 'sistema/equipo_form.html'
-	success_url = reverse_lazy(index)
 
 class EquiposList(ListView):
 	"""docstring for ReportesList"""
 	model = Equipo
 	template_name = 'sistema/equipos_lista.html'
+
+
+class EquiposCrear(CreateView):
+	"""docstring for ReportesCrear"""
+	model = Equipo
+	form_class = EquiposForm
+	template_name = 'sistema/equipo_form.html'
+	success_url = reverse_lazy('equipo_listar')
 
 
 class EquiposUpdate(UpdateView):
