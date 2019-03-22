@@ -11,11 +11,13 @@
 			<td>Dirección</td>
 			<td>Cuidad</td>
 			<td>Telefono</td>
+			<td>Aplicado en</td>
 			<td>Atendido por</td>
 			<td>Equipo recibido</td>
 			<td>Falla reportada</td>
 			<td>Trabajo realizado</td>
 			<td>Observaciones</td>
+			<td>Total</td>
 			<td>Acciones</td>
 		</tr>
 
@@ -30,17 +32,19 @@
 			<td>{{ reportes.direccion  }}</td>
 			<td>{{ reportes.ciudad  }}</td>
 			<td>{{ reportes.telefono  }}</td>
-			<td>{{ reportes.empleados.nombre }}</td>
+			<td>{{ reportes.realizado}}</td>
+			<td>{{ reportes.atendido }}</td>
 			<td>{{ reportes.equipo_recibido  }}</td>
 			<td>{{ reportes.falla_reportada  }}</td>
 			<td>{{ reportes.trabajo_realizado  }}</td>
 			<td>{{ reportes.observaciones  }}</td>
+			<td>{{ reportes.total }}</td>
 			<td>
 				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.No_reporte %}" >Editar</a>
 				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.No_reporte %}" >Eliminar</a>
 			</td>
 
-		</tr>>
+		</tr>
 		{% endfor %}
 
 		{% else %}
@@ -48,10 +52,22 @@
 
 		{% endif %}
 	</tbody>
-
-
 </table>
+<ul class="pager">
 
+	{% if page_obj.has_previous %}
+	<li>
+		<a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+	</li>
+	{% endif %}
+	<li>
+	{% if page_obj.has_next %}		
+		<a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+	</li>		
+	{% endif %}
+
+
+</ul>
 
 
 {% endblock %}

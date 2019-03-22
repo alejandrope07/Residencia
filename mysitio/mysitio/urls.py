@@ -23,6 +23,7 @@ urlpatterns = [
     path('equipo/',include('apps.equipos.urls')),
     path('reportes/',include('apps.reportes.urls')),
     path('usuario/',include('apps.usuarios.urls')),
+    path('clientes/',include('apps.clientes.urls')),
  
     path('', LoginView.as_view(template_name='sistema/index.html'), name="login")
     

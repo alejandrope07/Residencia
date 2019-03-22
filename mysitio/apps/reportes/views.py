@@ -56,6 +56,7 @@ class ReportesList(ListView):
 	"""docstring for ReportesList"""
 	model = Reportes
 	template_name = 'sistema/reportes_lista.html'
+	paginate_by = 3
 		
 
 class ReportesCrear(CreateView):

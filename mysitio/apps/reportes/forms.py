@@ -14,11 +14,13 @@ class ReportesForms(forms.ModelForm):
 			'direccion',
 			'ciudad',
 			'telefono',
+			'realizado',
 			'atendido',
 			'equipo_recibido',
 			'falla_reportada',
 			'trabajo_realizado',
 			'observaciones',
+			'total',
 
 		]
 		labels = {
@@ -28,24 +30,28 @@ class ReportesForms(forms.ModelForm):
 			'direccion': 'Direccion',
 			'ciudad': 'Ciudad',
 			'telefono': 'Telefono',
+			'realizado': 'Servicio aplicado en',
 			'atendido': 'Atendido por',
 			'equipo_recibido': 'Equipo recibido',
 			'falla_reportada': 'Falla Reportada',
 			'trabajo_realizado': 'trabajo realizado',
 			'observaciones': 'Observaciones del equipo',
+			'total': 'Total',
 
 		}
 		
 		widgets = {
 			'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
 			'No_reporte': forms.TextInput(attrs={'class': 'form-control'}),
-			'cliente': forms.TextInput(attrs={'class': 'form-control'}),
+			'cliente': forms.Select(attrs={'class': 'form-control'}),
 			'direccion': forms.TextInput(attrs={'class': 'form-control'}),
 			'ciudad': forms.TextInput(attrs={'class': 'form-control'}),
 			'telefono': forms.TextInput(attrs={'class': 'form-control'}),
-			'atendido': forms.CheckboxSelectMultiple(),
+			'realizado': forms.Select(),
+			'atendido': forms.Select(attrs={'class': 'form-control'}),
 			'equipo_recibido': forms.TextInput(attrs={'class': 'form-control'}),
 			'falla_reportada': forms.TextInput(attrs={'class': 'form-control'}),
 			'trabajo_realizado': forms.TextInput(attrs={'class': 'form-control'}),
 			'observaciones': forms.TextInput(attrs={'class': 'form-control'}),
+			'total': forms.TextInput(attrs={'class': 'form-control'}),
 		}
