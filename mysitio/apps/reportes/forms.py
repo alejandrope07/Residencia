@@ -1,15 +1,7 @@
 from django import forms
 
 from apps.reportes.models import Reportes, Empleados
-from bootstrap_datepicker.widgets import DatePicker
-class DateInput(DatePicker):
-    def __init__(self):
-        DatePicker.__init__(self,format="%Y-%m-%d")
-    def build_attrs(self, attrs, extra_attrs=None, **kwargs):
-        attrs = dict(self.attrs, **kwargs)
-        if extra_attrs:
-            attrs.update(extra_attrs)
-        return attrs
+
 
 class ReportesForms(forms.ModelForm):
 
@@ -51,7 +43,7 @@ class ReportesForms(forms.ModelForm):
 		}
 		
 		widgets = {
-			'fecha_recibido': forms.DateInput(),
+			'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
 			'id': forms.TextInput(attrs={'class': 'form-control'}),
 			'cliente': forms.Select(attrs={'class': 'form-control'}),
 			'direccion': forms.TextInput(attrs={'class': 'form-control'}),
