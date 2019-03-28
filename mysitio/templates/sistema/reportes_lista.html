@@ -8,9 +8,6 @@
 			<td>Fecha</td>
 			<td>No registro</td>
 			<td>Cliente</td>
-			<td>Dirección</td>
-			<td>Cuidad</td>
-			<td>Telefono</td>
 			<td>Aplicado en</td>
 			<td>Atendido por</td>
 			<td>Equipo recibido</td>
@@ -27,11 +24,8 @@
 		{% for reportes in object_list %}
 		<tr>
 			<td>{{ reportes.fecha_recibido  }}</td>
-			<td>{{ reportes.No_reporte  }}</td>
+			<td>{{ reportes.id  }}</td>
 			<td>{{ reportes.cliente  }}</td>
-			<td>{{ reportes.direccion  }}</td>
-			<td>{{ reportes.ciudad  }}</td>
-			<td>{{ reportes.telefono  }}</td>
 			<td>{{ reportes.realizado}}</td>
 			<td>{{ reportes.atendido }}</td>
 			<td>{{ reportes.equipo_recibido  }}</td>
@@ -40,8 +34,8 @@
 			<td>{{ reportes.observaciones  }}</td>
 			<td>{{ reportes.total }}</td>
 			<td>
-				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.No_reporte %}" >Editar</a>
-				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.No_reporte %}" >Eliminar</a>
+				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.id %}" >Editar</a>
+				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.id %}" >Eliminar</a>
 			</td>
 
 		</tr>

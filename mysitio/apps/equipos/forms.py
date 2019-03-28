@@ -10,32 +10,35 @@ class EquiposForm(forms.ModelForm):
 		model = Equipo
 
 		fields = [
+		'cantidad',
 		'nombre',
-		'modelo',
-		'departamento',
-		'caracteristicas',
-		'No_registro',
+		'descripcion',
+		'proveedor',
 		'fecha_recibido',
+		'cliente',
+		'precio',
 
 		]
 		labels = {
+		'cantidad': 'Cantidad',
 		'nombre': 'Nombre',
-		'modelo': 'Modelo',
-		'departamento': 'Departamento',
-		'caracteristicas': 'Caracteristicas',
-		'No_registro': 'Numero de registro',
-		'fecha_recibido': 'Fecha de recibido',
+		'descripcion': 'Descripcion',
+		'proveedor': 'Proveedor',
+		'fecha_recibido': 'Fecha recibido',
+		'cliente': 'Cliente',
+		'precio': 'precio',
+
 
 
 		}
 		widgets = {
+		'cantidad': forms.TextInput(attrs={'class': 'form-control'}),
 		'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-		'modelo': forms.TextInput(attrs={'class': 'form-control'}),
-		'departamento': forms.TextInput(attrs={'class': 'form-control'}),
-		'caracteristicas': forms.TextInput(attrs={'class': 'form-control'}),
-		'No_registro': forms.TextInput(attrs={'class': 'form-control'}),
+		'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
+		'proveedor': forms.TextInput(attrs={'class': 'form-control'}),
 		'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
-
+		'cliente': forms.TextInput(attrs={'class': 'form-control'}),
+		'precio': forms.TextInput(attrs={'class': 'form-control'}),
 		}
 
 

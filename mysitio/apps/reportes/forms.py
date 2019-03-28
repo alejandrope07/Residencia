@@ -1,7 +1,15 @@
 from django import forms
 
 from apps.reportes.models import Reportes, Empleados
-
+from bootstrap_datepicker.widgets import DatePicker
+class DateInput(DatePicker):
+    def __init__(self):
+        DatePicker.__init__(self,format="%Y-%m-%d")
+    def build_attrs(self, attrs, extra_attrs=None, **kwargs):
+        attrs = dict(self.attrs, **kwargs)
+        if extra_attrs:
+            attrs.update(extra_attrs)
+        return attrs
 
 class ReportesForms(forms.ModelForm):
 
@@ -9,11 +17,12 @@ class ReportesForms(forms.ModelForm):
 		model = Reportes
 		fields = [
 			'fecha_recibido',
-			'No_reporte',
+			'id',
 			'cliente',
 			'direccion',
 			'ciudad',
 			'telefono',
+			'email',
 			'realizado',
 			'atendido',
 			'equipo_recibido',
@@ -25,11 +34,12 @@ class ReportesForms(forms.ModelForm):
 		]
 		labels = {
 			'fecha_recibido': 'Fecha de recibido',
-			'No_reporte': 'Numero de reporte',
+			'id': 'Numero de reporte',
 			'cliente': 'Cliente',
 			'direccion': 'Direccion',
 			'ciudad': 'Ciudad',
 			'telefono': 'Telefono',
+			'email': 'E-mail',
 			'realizado': 'Servicio aplicado en',
 			'atendido': 'Atendido por',
 			'equipo_recibido': 'Equipo recibido',
@@ -41,12 +51,13 @@ class ReportesForms(forms.ModelForm):
 		}
 		
 		widgets = {
-			'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
-			'No_reporte': forms.TextInput(attrs={'class': 'form-control'}),
+			'fecha_recibido': forms.DateInput(),
+			'id': forms.TextInput(attrs={'class': 'form-control'}),
 			'cliente': forms.Select(attrs={'class': 'form-control'}),
 			'direccion': forms.TextInput(attrs={'class': 'form-control'}),
 			'ciudad': forms.TextInput(attrs={'class': 'form-control'}),
 			'telefono': forms.TextInput(attrs={'class': 'form-control'}),
+			'email': forms.TextInput(attrs={'class': 'form-control'}),
 			'realizado': forms.Select(),
 			'atendido': forms.Select(attrs={'class': 'form-control'}),
 			'equipo_recibido': forms.TextInput(attrs={'class': 'form-control'}),

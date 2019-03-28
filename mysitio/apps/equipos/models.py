@@ -5,9 +5,10 @@ from django.db import models
 
 class Equipo(models.Model):
 	"""docstring for Equipo"""
+	cantidad = models.IntegerField()
 	nombre = models.CharField(max_length=40)
-	modelo = models.CharField(max_length=30)
-	departamento = models.CharField(max_length=30)
-	caracteristicas = models.CharField(max_length=50)
-	No_registro = models.CharField(max_length=10, primary_key=True)
+	descripcion = models.CharField(max_length=50)
+	proveedor = models.CharField(max_length=30)
 	fecha_recibido = models.DateField()
+	cliente = models.CharField(max_length=40)
+	precio = models.IntegerField()
