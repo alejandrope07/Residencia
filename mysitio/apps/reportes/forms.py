@@ -1,7 +1,7 @@
 from django import forms
 
 from apps.reportes.models import Reportes, Empleados
-
+from django.contrib.admin import widgets 
 
 class ReportesForms(forms.ModelForm):
 

@@ -1,16 +1,13 @@
 {% extends 'base/base.html' %}
 
-
 {% block content %}
-
-
 <form method="post">
 
 	{% csrf_token %}
 	<div class="row">
 			
 		<div class="col-md-6 col-md-offset-0">
-			<div class="form-group">
+			<div class="form-group" id="datepicker">
 				<label for="{{form.fecha_recibido.name}}">{{form.fecha_recibido.label}}</label>
 				{{form.fecha_recibido}}
 			</div>
@@ -45,14 +42,16 @@
 		</div>
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
-				<label for="{{form.falla_reportada.name}}">{{form.falla_reportada.label}}</label>
+				<label for="{{form.falla_reportada.name}}" >{{form.falla_reportada.label}}</label>
 				{{form.falla_reportada}}
 			</div>
 		</div>
-		<div class="col-md-3 col-md-offset-0">
+		<div class="col-md-3 col-md-offset-0" >
 			<div class="form-group">
+				<span  id="ciudad">
 				<label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
 				{{form.ciudad}}
+				</span>
 			</div>
 		</div>
 		<div class="col-md-3 col-md-offset-0">
@@ -95,5 +94,24 @@
 	<button type="submit">Guardar</button>
 
 </form>
+<script> 	
+	$(document).ready(function(){
+		$("{{form.cliente.label}}").on("change", buscarCiudad(){
+			alert("hola");
+		});
 
+	});
+
+	function buscarCiudad(){
+		alert("hola");
+	}
+
+
+ 
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+</script>
 {% endblock %}
+
