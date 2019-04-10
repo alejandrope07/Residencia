@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ajax_select',
+    'datetime',
+   
     'apps.equipos',
     'apps.reportes',
     'apps.usuarios',

@@ -1,6 +1,6 @@
 from django.db import models
-
-
+from django.http import HttpResponse
+from django.core import serializers
 
 # Create your models here.
 class Clientes(models.Model):
@@ -14,6 +14,7 @@ class Clientes(models.Model):
 
 	def __str__(self):
 			return '{}'.format(self.cliente)
+
 
 
 class Empleados(models.Model):

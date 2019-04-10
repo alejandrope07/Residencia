@@ -1,5 +1,6 @@
 from django import forms
-
+from django.contrib.admin.widgets import AdminDateWidget
+from django.forms.fields import DateField
 from apps.reportes.models import Reportes, Empleados
 from django.contrib.admin import widgets 
 

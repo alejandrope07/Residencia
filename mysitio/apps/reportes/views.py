@@ -3,7 +3,7 @@ from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-
+from django.core import serializers
 
 from apps.reportes.forms import ReportesForms
 
@@ -25,7 +25,7 @@ def reportes_view(request):
 		form = ReportesForms()
 
 	return render(request, 'sistema/reportes_form.html', {'form': form})
-
+"""
 def reportes_lista(request):
 	reportes = Reportes.objects.all().order_by('No_reporte')
 	contexto = {'reportes':reportes}
@@ -50,7 +50,7 @@ def reportes_eliminar(request, No_reporte):
 		return redirect('sistema/reportes_lista.html')
 	return render(request, 'sistema/reportes_delete.html', {'reportes': reportes})
 
-
+"""
 
 class ReportesList(ListView):
 	"""docstring for ReportesList"""
