@@ -30,11 +30,13 @@ class ClienteEditar(UpdateView):
 	success_url = reverse_lazy('reportes_listar')
 	
 def CargarClientes(request):
-	
+		clave = request.GET.get('cliente')
 		if request.is_ajax:			
-
-			data = serializers.serialize('json',Clientes.objects.all())
+			
+			data = serializers.serialize('json',Clientes.objects.all().filter(id=clave))
+			print(data)
 		else:
 			data = 'fallo'
 
-		return HttpResponse(data, content_type='application/json')
+		return HttpResponse(json.dumps(data), content_type='application/json')
+		

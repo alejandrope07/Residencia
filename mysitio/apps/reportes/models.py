@@ -4,7 +4,7 @@ from apps.clientes.models import Clientes, Empleados, Lugar
 
 
 class Reportes(models.Model):
-	"""docstring for Equipo"""
+
 	fecha_recibido = models.DateField()
 
 	cliente = models.ForeignKey(Clientes, null=True, blank=True, on_delete=models.CASCADE)

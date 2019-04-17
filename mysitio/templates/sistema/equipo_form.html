@@ -57,5 +57,29 @@
 
 	<button type="submit">Guardar</button>
 </form>
+<script>
+	
+    $('#id_fecha_recibido').datepicker({
+        format: "dd/mm/yyyy"
+    });
 
+
+</script>
+<script> 
+
+
+
+	$(document).ready(function(){
+		
+		document.getElementById('id_cantidad').placeholder="cantidad del producto";
+		document.getElementById('id_nombre').placeholder="Nombre del producto";
+		document.getElementById('id_descripcion').placeholder="Descripción del producto";
+		document.getElementById('id_proveedor').placeholder="proveedor";
+		document.getElementById('id_cliente').placeholder="cliente";
+		document.getElementById('id_precio').placeholder="Precio total del producto";
+
+
+	});
+
+</script>
 {% endblock %}

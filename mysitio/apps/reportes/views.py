@@ -51,6 +51,13 @@ def reportes_eliminar(request, No_reporte):
 	return render(request, 'sistema/reportes_delete.html', {'reportes': reportes})
 
 """
+def buscar(request, *args, **kwargs):
+		buscar = request.POST['buscar']
+		reportes = Reportes.objects.filter(id__contains= buscar)
+		print(reportes)
+		return render(request, 'sistema/reportes_lista.html')
+
+
 
 class ReportesList(ListView):
 	"""docstring for ReportesList"""
@@ -71,7 +78,7 @@ class ReportesUpdate(UpdateView):
 	model = Reportes
 	form_class = ReportesForms
 	template_name = 'sistema/reportes_form.html'
-	success_url = reverse_lazy('sistema:reportes_listar')
+	success_url = reverse_lazy('reportes_listar')
 
 class ReportesDelete(DeleteView):
 	"""docstring for ReportesDelete"""

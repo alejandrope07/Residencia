@@ -22,7 +22,7 @@ class EquiposForm(forms.ModelForm):
 		labels = {
 		'cantidad': 'Cantidad',
 		'nombre': 'Nombre',
-		'descripcion': 'Descripcion',
+		'descripcion': 'Descripción',
 		'proveedor': 'Proveedor',
 		'fecha_recibido': 'Fecha recibido',
 		'cliente': 'Cliente',
