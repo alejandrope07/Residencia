@@ -3,9 +3,63 @@
 
 {% block content %}
 <form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Guardar</button>
-</form>
 
+	{% csrf_token %}
+	
+
+	<div class="row">
+			
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group ap-date" >
+				<label for="{{form.fecha.name}}">{{form.fecha.label}}</label>
+				{{form.fecha}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.modelo.name}}">{{form.modelo.label}}</label>
+				{{form.modelo}}
+			</div>
+		</div>
+	
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.serie.name}}">{{form.serie.label}}</label>
+				{{form.serie}}
+			</div>
+
+		</div>
+
+		<div class="col-md-6 col-md-offset-0" row="2">
+			<div class="form-group">
+				<label for="{{form.area.name}}">{{form.area.label}}</label>
+				{{form.area}}
+			</div>
+		</div>
+
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.pieza_cambiada.name}}">{{form.pieza_cambiada.label}}</label>
+				{{form.pieza_cambiada}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.serie_piezan.name}}" >{{form.serie_piezan.label}}</label>
+				{{form.serie_piezan}}
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-0" >
+			<div class="form-group">
+				<span  id="ciudad">
+				<label for="{{form.motivo.name}}">{{form.motivo.label}}</label>
+				{{form.motivo}}
+				</span>
+			</div>
+		</div>
+		
+	</div>
+	
+	<button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 {% endblock %}

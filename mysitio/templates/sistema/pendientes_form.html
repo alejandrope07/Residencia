@@ -3,17 +3,42 @@
 
 {% block content %}
 <form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Guardar</button>
-</form>
 
-<table class="table table-bordered">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success btn-sm col-md-2 col-md-offset-10 ">Guardar</button>
+    <div class="row">
+            
+        <div class="col-md-6 col-md-offset-0">
+            <div class="form-group">
+                <label for="{{form.descripcion.name}}">{{form.descripcion.label}}</label>
+                {{form.descripcion}}
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-0">
+            <div class="form-group ap-date" >
+                <label for="{{form.fecha.name}}">{{form.fecha.label}}</label>
+                {{form.fecha}}
+            </div>
+        </div>    
+        <div class="col-md-3 col-md-offset-0">
+            <div class="form-group">
+                <label for="{{form.asignar.name}}">{{form.asignar.label}}</label>
+                {{form.asignar}}
+            </div>
+
+        </div>
+
+    </div>
+
+
+</form>
+<br>
+<table class="table table-hover">
 	
         <thead>
-            <tr>
-                <td>Fecha</td>
+            <tr class="success">
                 <td>Descripcion</td>
+                <td>Fecha</td>
                 <td>asignar</td>
 
             </tr>
@@ -23,8 +48,8 @@
                 {% if objects %}
                 {% for pendientes in objects %}
                 <tr>
-                    <td>{{ pendientes.fecha  }}</td>
                     <td>{{ pendientes.descripcion  }}</td>
+                    <td>{{ pendientes.fecha  }}</td>
                     <td>{{ pendientes.asignar  }}</td>
                 
                 </tr>
@@ -35,4 +60,13 @@
             {% endif %}
         </tbody>
     </table>
+
+<script>
+    
+    $('#id_fecha').datepicker({
+        format: "dd/mm/yyyy"
+    });
+
+
+</script>
 {% endblock %}

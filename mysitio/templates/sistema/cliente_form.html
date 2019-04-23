@@ -3,9 +3,49 @@
 
 {% block content %}
 <form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<button type="submit">Guardar</button>
-</form>
 
+	{% csrf_token %}
+	<h2>Cliente nuevo</h2>
+	
+	<div class="row">
+			
+
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
+				{{form.cliente}}
+			</div>
+
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.direccion.name}}">{{form.direccion.label}}</label>
+				{{form.direccion}}
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-0" >
+			<div class="form-group">
+				<span  id="ciudad">
+				<label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
+				{{form.ciudad}}
+				</span>
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
+				{{form.telefono}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.email.name}}">{{form.email.label}}</label>
+				{{form.email}}
+			</div>
+		</div>
+
+	</div>
+	
+<button type="submit" class="btn btn-primary">Guardar</button>
+</form>
 {% endblock %}

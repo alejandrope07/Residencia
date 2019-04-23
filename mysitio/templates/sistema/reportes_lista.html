@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-
+<div class="table-responsive">
 <table class="table table-bordered">
 	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>		
 	<thead>
@@ -48,6 +48,7 @@
 		{% endif %}
 	</tbody>
 </table>
+</div>
 <ul class="pager">
 
 	{% if page_obj.has_previous %}

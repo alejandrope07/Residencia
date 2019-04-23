@@ -30,5 +30,5 @@ class PendientesForm(forms.ModelForm):
 		widgets = {
 			'fecha': forms.TextInput(attrs={'class': 'form-control'}),
 			'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
-			'asignar': forms.Select(),			
+			'asignar': forms.Select(attrs={'class': 'form-control'}),			
 		}
