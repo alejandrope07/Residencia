@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit">Guardar</button>
+</form>
+
+<table class="table table-bordered">
+	
+        <thead>
+            <tr>
+                <td>Fecha</td>
+                <td>Descripcion</td>
+                <td>asignar</td>
+
+            </tr>
+    
+        </thead>
+        <tbody>
+                {% if objects %}
+                {% for pendientes in objects %}
+                <tr>
+                    <td>{{ pendientes.fecha  }}</td>
+                    <td>{{ pendientes.descripcion  }}</td>
+                    <td>{{ pendientes.asignar  }}</td>
+                
+                </tr>
+                {% endfor %}
+            {% else %}
+            <h1>No Hay registros</h1>
+    
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

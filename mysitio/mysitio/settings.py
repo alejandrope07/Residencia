@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ajax_select',
+    
     'datetime',
     'apps.bitacora',
+    'apps.pendientes',
     'apps.equipos',
     'apps.reportes',
     'apps.usuarios',

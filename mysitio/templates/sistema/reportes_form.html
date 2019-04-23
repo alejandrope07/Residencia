@@ -150,14 +150,14 @@
 				beforeSend: function(){},
 				success: function(data){
 
-					alert(data);
-					for (var i = 1; i <= data.length; i++){
-						$direccion = data[$cliente].fields.direccion;
-						$email = data[$cliente].fields.email;
-						$ciudad = data[$cliente].fields.ciudad;
-						$telefono = data[$cliente].fields.telefono;
+				
+					for (var i = 0; i <= data.length; i++){
+						$direccion = data[0].fields.direccion;
+						$email = data[0].fields.email;
+						$ciudad = data[0].fields.ciudad;
+						$telefono = data[0].fields.telefono;
 					
-					
+						
 						
 					}
 					document.getElementById('id_direccion').value=$direccion;
