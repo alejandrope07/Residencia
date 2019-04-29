@@ -51,11 +51,7 @@ def reportes_eliminar(request, No_reporte):
 	return render(request, 'sistema/reportes_delete.html', {'reportes': reportes})
 
 """
-def buscar(request, *args, **kwargs):
-		buscar = request.POST['buscar']
-		reportes = Reportes.objects.filter(id__contains= buscar)
-		print(reportes)
-		return render(request, 'sistema/reportes_lista.html')
+
 
 
 
@@ -64,7 +60,9 @@ class ReportesList(ListView):
 	model = Reportes
 	template_name = 'sistema/reportes_lista.html'
 	paginate_by = 3
-		
+
+
+			
 
 class ReportesCrear(CreateView):
 	"""vistas basadas en clases"""
@@ -86,4 +84,3 @@ class ReportesDelete(DeleteView):
 	template_name = 'sistema/reportes_delete.html'
 	success_url = reverse_lazy('reportes_listar')
 
-		

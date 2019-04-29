@@ -37,7 +37,7 @@ class EquiposForm(forms.ModelForm):
 		'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
 		'proveedor': forms.TextInput(attrs={'class': 'form-control'}),
 		'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
-		'cliente': forms.TextInput(attrs={'class': 'form-control'}),
+		'cliente': forms.Select(attrs={'class': 'form-control'}),
 		'precio': forms.TextInput(attrs={'class': 'form-control'}),
 		}
 

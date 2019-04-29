@@ -17,7 +17,7 @@ class ClientesForms(forms.ModelForm):
 		]
 		labels = {
 			'cliente': 'Cliente',
-			'direccion': 'Direccion',
+			'direccion': 'Dirección',
 			'ciudad': 'Ciudad',
 			'telefono': 'Telefono',
 			'email': 'E-mail',

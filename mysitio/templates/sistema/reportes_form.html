@@ -66,7 +66,10 @@
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.email.name}}">{{form.email.label}}</label>
+				<div class="input-group">    
+                <span class="input-group-addon">@</span>
 				{{form.email}}
+				</div>
 			</div>
 		</div>
 		<div class="col-md-8 col-md-offset-0">
@@ -91,7 +94,10 @@
 			<div class="form-group">
 
 				<label for="{{form.total.name}}">{{form.total.label}}</label>
+				<div class="input-group">    
+                <span class="input-group-addon">$</span>
 				{{form.total}}
+				</div>
 				<small id="passwordHelpBlock" class="form-text text-muted">
 						El total incluye IVA 
 					  </small>
@@ -105,7 +111,11 @@
 <script>
 	
     $('#id_fecha_recibido').datepicker({
-        format: "dd/mm/yyyy"
+        format: "dd/mm/yyyy",
+		autoclose: true,
+		todayBtn: true,
+		todayHighlight: true,
+		language: 'es'
     });
 
 

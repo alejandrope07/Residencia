@@ -1,11 +1,17 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
+
+<input type="text" name="buscador"><button class="btm btm-danger" type="submit" action='sistema/index.html'>Buscar</button>
+
 <div class="table-responsive">
-<table class="table table-bordered">
-	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>		
+	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
+	<br>
+<table class="table table-hover">
+
+		
 	<thead>
-		<tr>
+		<tr class="info">
 			<td>Fecha</td>
 			<td>No registro</td>
 			<td>Cliente</td>
@@ -64,6 +70,52 @@
 
 
 </ul>
+<script> 
 
+
+
+	$(document).ready(function(){
+		
+
+	});
+
+	function buscar(){
+		var $buscar = $("#buscar").val();
+
+		
+		if($buscar == ""){
+			
+		}
+		else{
+			$.ajax({
+				dataType: "json",
+				data: {"buscador": $buscar},
+				type: "GET",
+				url: 'buscar',
+				
+				beforeSend: function(){},
+				success: function(data){
+
+					alert(data)
+					for (var i = 0; i <= data.length; i++){
+						
+						
+					}
+
+					
+				},
+				error: function(xhr,err){
+					alert("readyState ="+ xhr.readyState + " direccion = " + xhr.status + "respuesta =" + xhr.responseText);
+
+				},
+
+			});
+		}
+	}
+
+
+
+
+</script>
 
 {% endblock %}
