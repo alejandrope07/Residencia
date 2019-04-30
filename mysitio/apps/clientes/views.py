@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.core import serializers
 import json
 from apps.clientes.forms import ClientesForms, EmpleadosForms, LugarForms
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from apps.clientes.models import Clientes, Empleados, Lugar
 # Create your views here.
 class ClientesCrear(CreateView):
@@ -28,6 +28,22 @@ class ClienteEditar(UpdateView):
 	form_class = ClientesForms
 	template_name = 'sistema/reportes_form.html'
 	success_url = reverse_lazy('reportes_listar')
+
+class EmpleadosList(LoginRequiredMixin, ListView):
+	"""docstring for ReportesList"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
+	model = Empleados
+	template_name = 'sistema/empleados_lista.html'
+	paginate_by = 3
+
+class ClientesList(LoginRequiredMixin, ListView):
+	"""docstring for ReportesList"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
+	model = Clientes
+	template_name = 'sistema/clientes_lista.html'
+	paginate_by = 3
 	
 def CargarClientes(request):
 		

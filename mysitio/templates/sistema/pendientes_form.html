@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-
+{% block title %} Pendientes {% endblock %}
 {% block content %}
 <form method="post">
 
@@ -70,7 +70,11 @@
 <script>
     
     $('#id_fecha').datepicker({
-        format: "dd/mm/yyyy"
+        format: "dd/mm/yyyy",
+		autoclose: true,
+		todayBtn: true,
+		todayHighlight: true,
+		language: 'es'
     });
 
 

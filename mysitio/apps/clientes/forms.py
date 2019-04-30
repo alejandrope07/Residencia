@@ -78,3 +78,4 @@ class LugarForms(forms.ModelForm):
 
 			'nombre': forms.TextInput(attrs={'class': 'form-control'}),
 		}
+

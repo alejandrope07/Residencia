@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% block title %} Lista de reportes {% endblock %}
+{% block content %}
+
+
+
+<div class="table-responsive">
+	
+	<br>
+<table class="table table-hover">
+
+		
+	<thead>
+		<tr class="info">
+			<td>Nombre(s)</td>
+			<td>direccion</td>
+			<td>ciudad</td>
+			<td>Telefono</td>
+			<td>E-mail</td>
+
+
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for clientes in object_list %}
+		<tr>
+			<td>{{ clientes.cliente  }}</td>
+			<td>{{ clientes.direccion  }}</td>
+			<td>{{ clientes.ciudad  }}</td>
+			<td>{{ clientes.telefono}}</td>
+			<td>{{ clientes.email }}</td>
+
+
+			</td>
+
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No Hay registros</h1>
+
+		{% endif %}
+	</tbody>
+</table>
+</div>
+<ul class="pager">
+
+	{% if page_obj.has_previous %}
+	<li>
+		<a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+	</li>
+	{% endif %}
+	<li>
+	{% if page_obj.has_next %}		
+		<a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+	</li>		
+	{% endif %}
+
+
+</ul>
+
+
+{% endblock %}

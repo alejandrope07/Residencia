@@ -24,6 +24,10 @@ def equipos_view(request):
 
 		return render(request, 'sistema/equipo_form.html', {'form': form})
 
+def validar_usuario(request):
+	if not request.user.is_authenticated:
+		return redirect('login')
+
 
 class EquiposList(ListView):
 	"""docstring for ReportesList"""

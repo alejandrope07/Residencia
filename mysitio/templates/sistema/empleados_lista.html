@@ -1,48 +1,38 @@
 {% extends 'base/base.html' %}
-{% block title %} Lista de reportes {% endblock %}
+{% block title %} Lista de empleados {% endblock %}
 {% block content %}
 
-<input type="text" name="buscador"><button class="btm btm-danger" type="submit" action='sistema/index.html'>Buscar</button>
+
 
 <div class="table-responsive">
-	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
+	
 	<br>
 <table class="table table-hover">
 
 		
 	<thead>
 		<tr class="info">
-			<td>Fecha</td>
-			<td>No registro</td>
-			<td>Cliente</td>
-			<td>Aplicado en</td>
-			<td>Atendido por</td>
-			<td>Equipo recibido</td>
-			<td>Falla reportada</td>
-			<td>Trabajo realizado</td>
-			<td>Observaciones</td>
-			<td>Total</td>
-			<td>Acciones</td>
+			<td>Nombre(s)</td>
+			<td>Apellidos</td>
+			<td>Domicilio</td>
+			<td>Telefono</td>
+			<td>E-mail</td>
+
+
 		</tr>
 
 	</thead>
 	<tbody>
 		{% if object_list %}
-		{% for reportes in object_list %}
+		{% for empleados in object_list %}
 		<tr>
-			<td>{{ reportes.fecha_recibido  }}</td>
-			<td>{{ reportes.id  }}</td>
-			<td>{{ reportes.cliente  }}</td>
-			<td>{{ reportes.realizado}}</td>
-			<td>{{ reportes.atendido }}</td>
-			<td>{{ reportes.equipo_recibido  }}</td>
-			<td>{{ reportes.falla_reportada  }}</td>
-			<td>{{ reportes.trabajo_realizado  }}</td>
-			<td>{{ reportes.observaciones  }}</td>
-			<td>{{ reportes.total }}</td>
-			<td>
-				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.id %}" >Editar</a>
-				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.id %}" >Eliminar</a>
+			<td>{{ empleados.nombre  }}</td>
+			<td>{{ empleados.apellidos  }}</td>
+			<td>{{ empleados.domicilio  }}</td>
+			<td>{{ empleados.telefono}}</td>
+			<td>{{ empleados.email }}</td>
+
+
 			</td>
 
 		</tr>

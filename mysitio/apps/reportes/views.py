@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.core import serializers
@@ -12,6 +12,11 @@ from apps.reportes.models import Reportes, Empleados
 # Create your views here.
 def index(request):
 	return render(request, 'sistema/index.html')
+
+
+def validar_usuario(request):
+	if not request.user.is_authenticated:
+		return redirect('login')
 
 def reportes_view(request):
 	if request.method == 'POST':
@@ -55,8 +60,10 @@ def reportes_eliminar(request, No_reporte):
 
 
 
-class ReportesList(ListView):
+class ReportesList(LoginRequiredMixin, ListView):
 	"""docstring for ReportesList"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
 	model = Reportes
 	template_name = 'sistema/reportes_lista.html'
 	paginate_by = 3
@@ -64,15 +71,19 @@ class ReportesList(ListView):
 
 			
 
-class ReportesCrear(CreateView):
+class ReportesCrear(LoginRequiredMixin, CreateView):
 	"""vistas basadas en clases"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
 	model = Reportes
-	form_class = ReportesForms
+	form_class = ReportesForms	
 	template_name = 'sistema/reportes_form.html'
 	success_url = reverse_lazy('reportes_listar')
 
-class ReportesUpdate(UpdateView):
+class ReportesUpdate(LoginRequiredMixin, UpdateView):
 	"""docstring for ReportesUpdate"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
 	model = Reportes
 	form_class = ReportesForms
 	template_name = 'sistema/reportes_form.html'

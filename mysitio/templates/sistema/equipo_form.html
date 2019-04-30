@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-
+{% block title %} Nuevo producto {% endblock %}
 {% block content %}
 <form method="post">
 	{% csrf_token %}
@@ -60,7 +60,11 @@
 <script>
 	
     $('#id_fecha_recibido').datepicker({
-        format: "dd/mm/yyyy"
+		format: "dd/mm/yyyy",
+		autoclose: true,
+		todayBtn: true,
+		todayHighlight: true,
+		language: 'es'
     });
 
 
