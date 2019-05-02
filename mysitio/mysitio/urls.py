@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('clientes/',include('apps.clientes.urls')),
     path('bitacora/',include('apps.bitacora.urls')),
     path('pendientes/',include('apps.pendientes.urls')),
-    path('', LoginView.as_view(template_name='sistema/index.html'), name="login")
+    path('', LoginView.as_view(template_name='sistema/index.html'), name="login"),
     
+
 ]

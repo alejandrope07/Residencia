@@ -13,6 +13,9 @@ from apps.reportes.models import Reportes, Empleados
 def index(request):
 	return render(request, 'sistema/index.html')
 
+def inicio(request):
+	return render(request, 'sistema/inicio_form.html')
+
 
 def validar_usuario(request):
 	if not request.user.is_authenticated:

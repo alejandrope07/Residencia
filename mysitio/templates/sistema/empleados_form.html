@@ -34,13 +34,23 @@
 		<div class="col-md-3 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
-				{{form.telefono}}
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span class="glyphicon glyphicon-earphone"></span>
+						</div> 
+						{{form.telefono}}
+				</div>
 			</div>
 		</div>
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.email.name}}">{{form.email.label}}</label>
-				{{form.email}}
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span>@</span>
+						</div> 
+						{{form.email}}
+				</div>
 			</div>
 		</div>
 

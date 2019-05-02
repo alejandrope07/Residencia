@@ -5,7 +5,9 @@
 <input type="text" name="buscador"><button class="btm btm-danger" type="submit" action='sistema/index.html'>Buscar</button>
 
 <div class="table-responsive">
+	{% if perms.reportes.add_reportes %}
 	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
+	{% endif %}
 	<br>
 <table class="table table-hover">
 
@@ -41,8 +43,13 @@
 			<td>{{ reportes.observaciones  }}</td>
 			<td>{{ reportes.total }}</td>
 			<td>
-				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.id %}" >Editar</a>
-				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.id %}" >Eliminar</a>
+				{% if perms.reportes.change_reportes %}
+				<a class="btn btn-primary" href="{% url 'reportes_editar' reportes.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
+				{% endif %}
+
+				{% if perms.reportes.delete_reportes %}
+				<a class="btn btn-danger" href="{% url 'reportes_eliminar' reportes.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+				{% endif %}
 			</td>
 
 		</tr>

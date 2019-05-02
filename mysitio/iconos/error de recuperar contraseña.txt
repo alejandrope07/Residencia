@@ -1,0 +1,10 @@
+    path('reset/password_reset', PasswordResetView.as_view(template_name='registros/password_reset_form.html'), name='password_reset'), 
+
+    path('reset/Password_reset_done', PasswordResetDoneView.as_view(templeate_name='registros/password_reset_done.htmil'), 
+    name='password_reset_done'),
+
+    path('reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$', PasswordResetConfirmView.as_view(template_name='registros/Password_reset_confirm'),
+        name='password_reset_confirm'),
+
+    path('reset/done', PasswordResetCompleteView.as_view(templete_name='registros/password_reset_complet.html'),
+    name='password_reset_complete'),

@@ -1,24 +1,35 @@
 {% extends 'base/base.html' %}
 
-{% block title %} Inicio de sesion {% endblock %}
+{% block title %} Inicio de sesión {% endblock %}
 {% block navbar%}
 {% endblock %}
 {% block content %}
+<h1 align="center">Inicio de sesión</h1>
 <form method="post">
 	{% csrf_token %}
 	 <div class="row">
     	<div class="col-md-6 col-md-offset-3">
     		<div class="form-group">
-        		<label for="username">Nombre de usuario:</label>
-        		<input class="form-control" type="text" name="username">
+				<label for="username">Nombre de usuario:</label>
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span class="glyphicon glyphicon-user"></span>
+						</div> 
+						<input class="form-control" type="text" name="username">
+				</div>		
     	   </div>
         </div>
     </div>    
     <div class="row">
     	<div class="col-md-6 col-md-offset-3">
     		<div class="form-group">
-        		<label for="username">Contraseña:</label>
-        		<input class="form-control" type="password" name="password">
+				<label for="username">Contraseña:</label>
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span class="glyphicon glyphicon-lock"></span>
+						</div> 
+						<input class="form-control" type="password" name="password">
+				</div>
     	   </div>
         </div>
     </div>

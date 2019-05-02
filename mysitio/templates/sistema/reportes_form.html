@@ -12,13 +12,23 @@
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group ap-date" >
 				<label for="{{form.fecha_recibido.name}}">{{form.fecha_recibido.label}}</label>
-				{{form.fecha_recibido}}
+				<div class="input-group">
+					<div class="input-group-addon">   
+						<span class="glyphicon glyphicon-calendar"></span>
+					</div> 
+						{{form.fecha_recibido}}
+				</div>	
 			</div>
 		</div>
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.equipo_recibido.name}}">{{form.equipo_recibido.label}}</label>
-				{{form.equipo_recibido}}
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span class="glyphicon glyphicon-phone"></span>
+						</div>
+						{{form.equipo_recibido}}
+				</div>
 			</div>
 		</div>
 	
@@ -51,7 +61,6 @@
 		</div>
 		<div class="col-md-3 col-md-offset-0" >
 			<div class="form-group">
-				<span  id="ciudad">
 				<label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
 				{{form.ciudad}}
 				</span>
@@ -60,15 +69,23 @@
 		<div class="col-md-3 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
-				{{form.telefono}}
+				<div class="input-group">
+					<div class="input-group-addon">   
+						<span class="glyphicon glyphicon-earphone"></span>
+					</div> 
+					{{form.telefono}}
+				</div>	
 			</div>
 		</div>
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
 				<label for="{{form.email.name}}">{{form.email.label}}</label>
-				<div class="input-group">    
-                <span class="input-group-addon">@</span>
-				{{form.email}}
+				<div class="input-group">
+					<div class="input-group-addon">   
+						@
+					</div> 	
+						{{form.email}}
+					
 				</div>
 			</div>
 		</div>
@@ -95,8 +112,10 @@
 
 				<label for="{{form.total.name}}">{{form.total.label}}</label>
 				<div class="input-group">    
-                <span class="input-group-addon">$</span>
-				{{form.total}}
+						<div class="input-group-addon">   
+								<span class="glyphicon glyphicon-usd"></span>
+						</div> 
+							{{form.total}}
 				</div>
 				<small id="passwordHelpBlock" class="form-text text-muted">
 						El total incluye IVA 

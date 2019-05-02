@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from apps.usuarios.forms import RegistroForm
 from django.contrib.auth import logout
@@ -14,5 +15,5 @@ class RegistroUsuarios(CreateView):
 	success_url = reverse_lazy('reportes_listar')
 
 def logout_view(request):
-    logout(request)
-	
+	logout(request)
+	return redirect("login")
