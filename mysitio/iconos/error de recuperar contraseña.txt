@@ -1,3 +1,5 @@
+https://steemit.com/utopian-io/@kit.andres/como-usar-el-sistema-de-autenticacion-de-django-parte-2-recuperar-contrasena-y-actualizar-contrasena
+
     path('reset/password_reset', PasswordResetView.as_view(template_name='registros/password_reset_form.html'), name='password_reset'), 
 
     path('reset/Password_reset_done', PasswordResetDoneView.as_view(templeate_name='registros/password_reset_done.htmil'), 

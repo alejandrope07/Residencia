@@ -12,11 +12,13 @@
 		
 	<thead>
 		<tr class="info">
+			<td>#</td>
 			<td>Nombre(s)</td>
-			<td>direccion</td>
-			<td>ciudad</td>
+			<td>Direccion</td>
+			<td>Ciudad</td>
 			<td>Telefono</td>
 			<td>E-mail</td>
+			<td>Acciones</td>
 
 
 		</tr>
@@ -26,12 +28,21 @@
 		{% if object_list %}
 		{% for clientes in object_list %}
 		<tr>
+			<td>{{ clientes.id }}</td>
 			<td>{{ clientes.cliente  }}</td>
 			<td>{{ clientes.direccion  }}</td>
 			<td>{{ clientes.ciudad  }}</td>
 			<td>{{ clientes.telefono}}</td>
 			<td>{{ clientes.email }}</td>
-
+			<td>
+					{% if perms.reportes.change_reportes %}
+					<a class="btn btn-primary" href="{% url 'reportes_editar' clientes.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
+					{% endif %}
+	
+					{% if perms.reportes.delete_reportes %}
+					<a class="btn btn-danger" href="{% url 'reportes_eliminar' clientes.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+					{% endif %}
+			</td>
 
 			</td>
 

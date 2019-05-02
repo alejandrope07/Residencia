@@ -28,11 +28,11 @@
 			<td>{{ equipos.fecha_recibido  }}</td>
 			<td>{{ equipos.precio }}</td>
 			<td>
-				<a class="btn btn-primary" href="{% url 'equipo_editar' equipos.id %}" >Editar</a>
-				<a class="btn btn-danger" href="{% url 'equipo_eliminar' equipos.id %}" >Eliminar</a>
+				<a class="btn btn-primary" href="{% url 'equipo_editar' equipos.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
+				<a class="btn btn-danger" href="{% url 'equipo_eliminar' equipos.id %}" ><span class="glyphicon glyphicon-trash"></span></a>
 			</td>
 
-		</tr>>
+		</tr>
 		{% endfor %}
 
 		{% else %}

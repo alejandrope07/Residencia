@@ -89,7 +89,16 @@ class ReportesUpdate(LoginRequiredMixin, UpdateView):
 	redirect_field_name = 'redirect_to'
 	model = Reportes
 	form_class = ReportesForms
-	template_name = 'sistema/reportes_form.html'
+	template_name = 'sistema/reportes_edit.html'
+	success_url = reverse_lazy('reportes_listar')
+
+class ReportesView(LoginRequiredMixin, UpdateView):
+	"""docstring for ReportesUpdate"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
+	model = Reportes
+	form_class = ReportesForms
+	template_name = 'sistema/reportes_view.html'
 	success_url = reverse_lazy('reportes_listar')
 
 class ReportesDelete(DeleteView):

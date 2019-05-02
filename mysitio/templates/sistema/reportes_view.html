@@ -1,0 +1,226 @@
+{% extends 'base/base.html' %}
+{% block title %} Ver reporte {% endblock %}
+{% block content %}
+
+<form method="post">
+
+	{% csrf_token %}
+	
+	<a class="btn btn-primary" href="{% url 'reportes_listar' %}">Regresar</a>
+	<div class="row">
+			
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group ap-date" >
+				<label for="{{form.fecha_recibido.name}}">{{form.fecha_recibido.label}}</label>
+				<div class="input-group">
+					<div class="input-group-addon">   
+						<span class="glyphicon glyphicon-calendar"></span>
+					</div> 
+						{{form.fecha_recibido}}
+				</div>	
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.equipo_recibido.name}}">{{form.equipo_recibido.label}}</label>
+				<div class="input-group">
+						<div class="input-group-addon">   
+							<span class="glyphicon glyphicon-phone"></span>
+						</div>
+						{{form.equipo_recibido}}
+				</div>
+			</div>
+		</div>
+	
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+                <label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
+                        {{form.cliente}}      
+			</div>
+
+		</div>
+
+		<div class="col-md-6 col-md-offset-0" row="2">
+			<div class="form-group">
+				<label for="{{form.trabajo_realizado.name}}">{{form.trabajo_realizado.label}}</label>
+				{{form.trabajo_realizado}}
+			</div>
+		</div>
+
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.direccion.name}}">{{form.direccion.label}}</label>
+				{{form.direccion}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.falla_reportada.name}}" >{{form.falla_reportada.label}}</label>
+				{{form.falla_reportada}}
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-0" >
+			<div class="form-group">
+                <label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
+				        {{form.ciudad}}
+			
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
+				<div class="input-group">
+					<div class="input-group-addon">   
+						<span class="glyphicon glyphicon-earphone"></span>
+					</div> 
+					{{form.telefono}}
+				</div>	
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.email.name}}">{{form.email.label}}</label>
+				<div class="input-group">
+					<div class="input-group-addon">   
+						@
+					</div> 	
+						{{form.email}}
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.realizado.name}}">{{form.realizado.label}}</label>
+				{{form.realizado}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.atendido.name}}">{{form.atendido.label}}</label>
+				{{form.atendido}}
+			</div>
+		</div>
+		<div class="col-md-6 col-md-offset-0">
+			<div class="form-group">
+				<label for="{{form.observaciones.name}}">{{form.observaciones.label}}</label>
+				{{form.observaciones}}
+			</div>
+		</div>
+		<div class="col-md-3 col-md-offset-9">
+			<div class="form-group">
+
+				<label for="{{form.total.name}}">{{form.total.label}}</label>
+				<div class="input-group">    
+						<div class="input-group-addon">   
+								<span class="glyphicon glyphicon-usd"></span>
+						</div> 
+							{{form.total}}
+				</div>
+				<small id="passwordHelpBlock" class="form-text text-muted">
+						El total incluye IVA 
+					  </small>
+			</div>
+		</div>
+	</div>
+	
+
+</form>
+
+<script>
+	
+    $('#id_fecha_recibido').datepicker({
+        format: "dd/mm/yyyy",
+		autoclose: true,
+		todayBtn: true,
+		todayHighlight: true,
+		language: 'es'
+    });
+
+
+</script>
+<script> 
+
+
+
+	$(document).ready(function(){
+		$("#id_cliente").on("change", buscar);
+        document.getElementById("id_fecha_recibido").disabled = true;
+		document.getElementById('id_fecha_recibido').placeholder="Fecha de recibido";
+        document.getElementById("id_equipo_recibido").disabled = true;
+		document.getElementById('id_equipo_recibido').placeholder="Equipo recibido";
+		document.getElementById('id_trabajo_realizado').placeholder="Trabajo realizado";
+        document.getElementById("id_trabajo_realizado").disabled = true;
+		document.getElementById('id_direccion').placeholder="Direccion del cliente";
+        document.getElementById("id_direccion").disabled = true;
+		document.getElementById('id_falla_reportada').placeholder="Falla reportada";
+        document.getElementById("id_falla_reportada").disabled = true;
+		document.getElementById('id_ciudad').placeholder="Ciudad del cliente";
+        document.getElementById("id_ciudad").disabled = true;
+		document.getElementById('id_total').placeholder="Precio total en pesos";
+        document.getElementById("id_total").disabled = true;
+		document.getElementById('id_email').placeholder="Email del cliente";
+        document.getElementById("id_email").disabled = true;
+		document.getElementById('id_telefono').placeholder="Telefono del cliente";
+        document.getElementById("id_telefono").disabled = true;
+		document.getElementById('id_cliente').method="POST";
+        document.getElementById("id_cliente").disabled = true;
+		document.getElementById('id_observaciones').placeholder="Observaciones y accesorios";
+        document.getElementById("id_observaciones").disabled = true;
+        document.getElementById("id_realizado").disabled = true;
+        document.getElementById("id_atendido").disabled = true;
+        
+
+	});
+
+	function buscar(){
+		var $cliente = $("#id_cliente").val();
+		var $direccion = $("#id_direccion").val();
+		var $ciudad = $("#id_ciudad").val();
+		var $email = $("#id_email").val();
+		var $telefono = $("#id_telefono").val();
+		
+		if($cliente == ""){
+			
+		}
+		else{
+			$.ajax({
+				dataType: "json",
+				data: {"cliente": $cliente},
+				type: "GET",
+				url: 'editarc',
+				
+				beforeSend: function(){},
+				success: function(data){
+
+				
+					for (var i = 0; i <= data.length; i++){
+						$direccion = data[0].fields.direccion;
+						$email = data[0].fields.email;
+						$ciudad = data[0].fields.ciudad;
+						$telefono = data[0].fields.telefono;
+					
+						
+						
+					}
+					document.getElementById('id_direccion').value=$direccion;
+					document.getElementById('id_email').value=$email;
+					document.getElementById('id_ciudad').value=$ciudad;
+					document.getElementById('id_telefono').value=$telefono;
+					
+				},
+				error: function(xhr,err){
+					alert("readyState ="+ xhr.readyState + " direccion = " + xhr.status + "respuesta =" + xhr.responseText);
+
+				},
+
+			});
+		}
+	}
+
+
+
+
+</script>
+{% endblock %}
+

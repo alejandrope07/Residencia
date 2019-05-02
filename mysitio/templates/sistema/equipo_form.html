@@ -80,11 +80,10 @@
 
 </script>
 <script> 
-
-
-
 	$(document).ready(function(){
-		
+		var f = new Date();
+		var fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+		document.getElementById('id_fecha_recibido').value=fecha;
 		document.getElementById('id_cantidad').placeholder="cantidad del producto";
 		document.getElementById('id_nombre').placeholder="Nombre del producto";
 		document.getElementById('id_descripcion').placeholder="Descripción del producto";

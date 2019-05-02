@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %} Nuevo reporte {% endblock %}
+{% block title %} Editar reporte {% endblock %}
 {% block content %}
 
 <form method="post">
@@ -34,11 +34,9 @@
 	
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
-				
-					<a  href="{% url 'clientes_nuevo' %}">+</a>
-					<label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
-					{{form.cliente}}
-			
+                <label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
+                        {{form.cliente}}
+       
 			</div>
 
 		</div>
@@ -64,9 +62,9 @@
 		</div>
 		<div class="col-md-3 col-md-offset-0" >
 			<div class="form-group">
-				<label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
-				{{form.ciudad}}
-				</span>
+                <label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
+				        {{form.ciudad}}
+			
 			</div>
 		</div>
 		<div class="col-md-3 col-md-offset-0">
@@ -127,7 +125,7 @@
 		</div>
 	</div>
 	
-	<button type="submit" class="btn btn-primary">Guardar</button>
+	<button type="submit" class="btn btn-primary">Guardar cambios</button>
 </form>
 
 <script>
@@ -142,20 +140,12 @@
 
 
 </script>
-<script>
-		var f = new Date();
-		var fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-		document.getElementById('id_fecha_recibido').val=fecha;
-		</script>
 <script> 
 
 
 
 	$(document).ready(function(){
 		$("#id_cliente").on("change", buscar);
-		var f = new Date();
-		var fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
-		document.getElementById('id_fecha_recibido').value=fecha;
 		document.getElementById('id_fecha_recibido').placeholder="Fecha de recibido";
 		document.getElementById('id_equipo_recibido').placeholder="Equipo recibido";
 		document.getElementById('id_trabajo_realizado').placeholder="Trabajo realizado";
