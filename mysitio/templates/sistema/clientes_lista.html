@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %} Lista de reportes {% endblock %}
+{% block title %} Lista de clientes {% endblock %}
 {% block content %}
 
 
@@ -36,11 +36,14 @@
 			<td>{{ clientes.email }}</td>
 			<td>
 					{% if perms.reportes.change_reportes %}
-					<a class="btn btn-primary" href="{% url 'reportes_editar' clientes.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
+					<a class="btn btn-primary" href="{% url 'clientes_ver' clientes.id %}" ><span class="glyphicon glyphicon-eye-open"></span></a>
+					{% endif %}
+					{% if perms.reportes.change_reportes %}
+					<a class="btn btn-primary" href="{% url 'clientes_editar' clientes.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
 					{% endif %}
 	
 					{% if perms.reportes.delete_reportes %}
-					<a class="btn btn-danger" href="{% url 'reportes_eliminar' clientes.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+					<a class="btn btn-danger" href="{% url 'clientes_eliminar' clientes.id %}"><span class="glyphicon glyphicon-trash"></span></a>
 					{% endif %}
 			</td>
 

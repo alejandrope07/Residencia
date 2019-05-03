@@ -5,6 +5,7 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
+			<td>#</td>
 			<td>Cantidad</td>
 			<td>Nombre</td>			
 			<td>Descripcion</td>
@@ -19,15 +20,17 @@
 	<tbody>
 		{% if object_list %}
 		{% for equipos in object_list %}
-		<tr>			
+		<tr>
+			<td>{{ equipos.id }}</td>			
 			<td>{{ equipos.cantidad  }}</td>
 			<td>{{ equipos.nombre  }}</td>
 			<td>{{ equipos.descripcion  }}</td>
 			<td>{{ equipos.proveedor  }}</td>
 			<td>{{ equipos.cliente  }}</td>
 			<td>{{ equipos.fecha_recibido  }}</td>
-			<td>{{ equipos.precio }}</td>
+			<td>$ {{ equipos.precio }}</td>
 			<td>
+				<a class="btn btn-primary" href="{% url 'equipo_ver' equipos.id %}" ><span class="glyphicon glyphicon-eye-open"></span></a>
 				<a class="btn btn-primary" href="{% url 'equipo_editar' equipos.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
 				<a class="btn btn-danger" href="{% url 'equipo_eliminar' equipos.id %}" ><span class="glyphicon glyphicon-trash"></span></a>
 			</td>

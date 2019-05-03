@@ -3,9 +3,8 @@
 {% block title %} Nuevo cliente {% endblock %}
 {% block content %}
 <form method="post">
-
+    <a class="btn btn-primary" href="{% url 'clientes_lista' %}">Regresar</a>
 	{% csrf_token %}
-	<h2>Cliente nuevo</h2>
 	
 	<div class="row">
 			
@@ -54,16 +53,19 @@
 			</div>
 		</div>
 
-	</div>
-	
-<button type="submit" class="btn btn-primary">Guardar</button>
+	</div>	
 </form>
 <script> 
         $(document).ready(function(){
+            document.getElementById("id_cliente").disabled = true;
             document.getElementById('id_cliente').placeholder="nombre del cliente";
+            document.getElementById("id_direccion").disabled = true;
             document.getElementById('id_direccion').placeholder="Dirección";
+            document.getElementById("id_ciudad").disabled = true;
             document.getElementById('id_ciudad').placeholder="Ciudad";
+            document.getElementById("id_telefono").disabled = true;
             document.getElementById('id_telefono').placeholder="Telefono";
+            document.getElementById("id_email").disabled = true;
             document.getElementById('id_email').placeholder="E-mail";
    
     

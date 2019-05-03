@@ -50,6 +50,13 @@ class EquiposUpdate(UpdateView):
 	template_name = 'sistema/equipo_form.html'
 	success_url = reverse_lazy('equipo_listar')
 
+class EquiposView(UpdateView):
+	"""docstring for ReportesUpdate"""
+	model = Equipo
+	form_class = EquiposForm
+	template_name = 'sistema/equipo_view.html'
+	success_url = reverse_lazy('equipo_listar')
+
 class EquiposDelete(DeleteView):
 	"""docstring for ReportesDelete"""
 	model = Equipo

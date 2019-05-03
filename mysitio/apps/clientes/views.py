@@ -14,7 +14,7 @@ class ClientesCrear(CreateView):
 	model = Clientes
 	form_class = ClientesForms
 	template_name = 'sistema/cliente_form.html'
-	success_url = reverse_lazy('reportes_listar')
+	success_url = reverse_lazy('clientes_lista')
 
 class EmpleadosCrear(CreateView):
 	"""docstring for EmpleadosCrear"""
@@ -26,8 +26,20 @@ class EmpleadosCrear(CreateView):
 class ClienteEditar(UpdateView):
 	model = Clientes
 	form_class = ClientesForms
-	template_name = 'sistema/reportes_form.html'
-	success_url = reverse_lazy('reportes_listar')
+	template_name = 'sistema/clientes_edit.html'
+	success_url = reverse_lazy('clientes_lista')
+
+class ClienteView(UpdateView):
+	model = Clientes
+	form_class = ClientesForms
+	template_name = 'sistema/clientes_view.html'
+	success_url = reverse_lazy('clientes_lista')
+
+class ClienteDelete(DeleteView):
+	"""docstring for ReportesDelete"""
+	model = Clientes
+	template_name = 'sistema/clientes_delete.html'
+	success_url = reverse_lazy('clientes_lista')
 
 class EmpleadosList(LoginRequiredMixin, ListView):
 	"""docstring for ReportesList"""

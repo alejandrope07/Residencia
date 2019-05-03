@@ -58,4 +58,16 @@
 	
 <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+<script> 
+        $(document).ready(function(){
+            document.getElementById('id_nombre').placeholder="Nombre del empleado";
+            document.getElementById('id_apellidos').placeholder="Apellido del empleado";
+            document.getElementById('id_domicilio').placeholder="Domicilio";
+            document.getElementById('id_telefono').placeholder="Telefono";
+            document.getElementById('id_email').placeholder="E-mail";
+   
+    
+        });
+    
+</script>
 {% endblock %}
