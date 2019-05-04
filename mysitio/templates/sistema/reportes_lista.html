@@ -2,7 +2,11 @@
 {% block title %} Lista de reportes {% endblock %}
 {% block content %}
 
-<input type="text" name="buscador"><button class="btm btm-danger" type="submit" action='sistema/index.html'>Buscar</button>
+<form method="get" action="{% url 'reportes_listar' %}">
+		<input type="text" name="filter"/>
+		<input type="submit" name="submit" value="Buscar"/>
+	</form>
+
 
 <div class="table-responsive">
 	{% if perms.reportes.add_reportes %}
@@ -57,35 +61,12 @@
 		{% endfor %}
 
 		{% else %}
-		<h1>No Hay registros</h1>
+		<h2>No Hay registros relacionados con su busqueda</h2>
 
 		{% endif %}
 	</tbody>
 </table>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel">Eliminar reporte</h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-			  ...
-			</div>
-			<div class="modal-footer">
-					<form method="post">
-							{% csrf_token %}
-							<h2>¿Desea eliminar el reporte?</h2>
-							<button class="btm btm-danger" type="submit">Sí, eliminar</button>
-							<a class="btm btm-default" href="{% url 'reportes_listar' %}">Cancelar</a>
-					</form>
-			</div>
-		  </div>
-		</div>
-	  </div>
 <ul class="pager">
 
 	{% if page_obj.has_previous %}

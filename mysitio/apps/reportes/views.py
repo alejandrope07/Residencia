@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.core import serializers
 
 from apps.reportes.forms import ReportesForms
-
+from apps.clientes.models import Clientes
 from apps.reportes.models import Reportes, Empleados
 
 # Create your views here.
@@ -72,6 +72,18 @@ class ReportesList(LoginRequiredMixin, ListView):
 	paginate_by = 3
 
 
+	def get_queryset(self):
+		filter_val = self.request.GET.get('filter')
+		new_context = Reportes.objects.filter(cliente__cliente=filter_val) | Reportes.objects.filter(trabajo_realizado=filter_val)
+		print(new_context)
+		return new_context
+		
+	def get_context_data(self, **kwargs):
+		context = super(ReportesList, self).get_context_data(**kwargs)
+		context['filter'] = self.request.GET.get('filter', 'give-default-value')
+		
+		return context
+
 			
 
 class ReportesCrear(LoginRequiredMixin, CreateView):
@@ -101,8 +113,10 @@ class ReportesView(LoginRequiredMixin, UpdateView):
 	template_name = 'sistema/reportes_view.html'
 	success_url = reverse_lazy('reportes_listar')
 
-class ReportesDelete(DeleteView):
+class ReportesDelete(LoginRequiredMixin, DeleteView):
 	"""docstring for ReportesDelete"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
 	model = Reportes
 	template_name = 'sistema/reportes_delete.html'
 	success_url = reverse_lazy('reportes_listar')

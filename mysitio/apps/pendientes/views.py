@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-class PendientesCrear(CreateView):
+class PendientesCrear(LoginRequiredMixin, CreateView):
 	"""vistas basadas en clases"""
 	login_url = 'login'
 	redirect_field_name = 'redirect_to'
@@ -26,7 +26,6 @@ def list_and_create(request):
     form = PendientesForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         form.save()
-
     
     objects = Pendientes.objects.all()
     return render(request, 'sistema/pendientes_form.html', {'objects': objects, 'form': form})

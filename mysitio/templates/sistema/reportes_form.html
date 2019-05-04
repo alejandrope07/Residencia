@@ -33,12 +33,15 @@
 		</div>
 	
 		<div class="col-md-6 col-md-offset-0">
-			<div class="form-group">
-				
-					<a  href="{% url 'clientes_nuevo' %}">+</a>
+			<div class="form-group">				
+					
 					<label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
-					{{form.cliente}}
-			
+					<div class="input-group">
+						<div class="input-group-addon">
+								<a class="badge badge-primary" href="{% url 'clientes_nuevo' %}">+</a>
+						</div>
+						{{form.cliente}}
+					</div>
 			</div>
 
 		</div>
