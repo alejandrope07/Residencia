@@ -8,7 +8,7 @@ from django.core import serializers
 from apps.reportes.forms import ReportesForms
 from apps.clientes.models import Clientes
 from apps.reportes.models import Reportes, Empleados
-
+import json
 # Create your views here.
 def index(request):
 	return render(request, 'sistema/index.html')
@@ -60,10 +60,16 @@ def reportes_eliminar(request, No_reporte):
 
 """
 
-
-
-
 class ReportesList(LoginRequiredMixin, ListView):
+	"""docstring for ReportesList"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
+	model = Reportes
+	template_name = 'sistema/reportes_lista.html'
+	paginate_by = 3
+
+
+class ReportesListS(LoginRequiredMixin, ListView):
 	"""docstring for ReportesList"""
 	login_url = 'login'
 	redirect_field_name = 'redirect_to'
@@ -74,17 +80,31 @@ class ReportesList(LoginRequiredMixin, ListView):
 
 	def get_queryset(self):
 		filter_val = self.request.GET.get('filter')
-		new_context = Reportes.objects.filter(cliente__cliente=filter_val) | Reportes.objects.filter(trabajo_realizado=filter_val)
-		print(new_context)
+		if filter_val == '':
+			new_context = Reportes.objects.all()
+			paginator = Paginator(new_context, 2)
+		else:
+			new_context = Reportes.objects.filter(cliente__cliente=filter_val) | Reportes.objects.filter(trabajo_realizado=filter_val)
+			paginator = Paginator(new_context, 2)
+			print(new_context)
 		return new_context
 		
 	def get_context_data(self, **kwargs):
-		context = super(ReportesList, self).get_context_data(**kwargs)
+		context = super(ReportesListS, self).get_context_data(**kwargs)
 		context['filter'] = self.request.GET.get('filter', 'give-default-value')
 		
 		return context
 
-			
+def Buscar(request):
+		
+		if request.is_ajax:			
+			filter_val = request.GET.get('filter')
+			data = serializers.serialize('json',Reportes.objects.filter(cliente__cliente=filter_val))
+			print(filter_val)
+		else:
+			data = 'fallo'
+
+		return HttpResponse(data, content_type='application/json')		
 
 class ReportesCrear(LoginRequiredMixin, CreateView):
 	"""vistas basadas en clases"""

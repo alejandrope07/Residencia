@@ -2,8 +2,8 @@
 {% block title %} Lista de reportes {% endblock %}
 {% block content %}
 
-<form method="get" action="{% url 'reportes_listar' %}">
-		<input type="text" name="filter"/>
+<form method="get" action="{% url 'reportes_listar_buscar' %}" id="myform">
+		<input type="text" name="filter" id="filter"/>
 		<input type="submit" name="submit" value="Buscar"/>
 	</form>
 
@@ -13,7 +13,7 @@
 	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
 	{% endif %}
 	<br>
-<table class="table table-hover">
+<table class="table table-hover" id="tabla">
 
 		
 	<thead>
@@ -92,30 +92,21 @@
 	});
 
 	function buscar(){
-		var $buscar = $("#buscar").val();
+		var $buscar = $("#filter").val();
 
 		
 		if($buscar == ""){
-			
+			alert("escribe algo")
 		}
 		else{
 			$.ajax({
 				dataType: "json",
-				data: {"buscador": $buscar},
+				data: {"filter": $buscar},
 				type: "GET",
-				url: 'buscar',
+				url: 'listar/buscar',
 				
 				beforeSend: function(){},
-				success: function(data){
-
-					alert(data)
-					for (var i = 0; i <= data.length; i++){
-						
-						
-					}
-
-					
-				},
+				success: function(data){},
 				error: function(xhr,err){
 					alert("readyState ="+ xhr.readyState + " direccion = " + xhr.status + "respuesta =" + xhr.responseText);
 

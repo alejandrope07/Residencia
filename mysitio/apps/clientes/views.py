@@ -74,7 +74,7 @@ def CargarClientes(request):
 		if request.is_ajax:			
 			clave = request.GET.get('cliente')
 			data = serializers.serialize('json',Clientes.objects.all().filter(id=clave))
-			
+			print(clave)
 		else:
 			data = 'fallo'
 
