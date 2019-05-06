@@ -141,7 +141,16 @@ LOGIN_REDIRECT_URL = reverse_lazy('reportes_listar')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'ALEJANDROPEDIAZ17@GMAIL.COM'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'alejandropediaz17@GMAIL.COM'
 EMAIL_HOST_PASSWORD = 'osamodamerkurio1'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+1
+2
+3
+4
+5
+6
+7

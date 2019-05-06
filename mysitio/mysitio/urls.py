@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
@@ -27,6 +27,16 @@ urlpatterns = [
     path('bitacora/',include('apps.bitacora.urls')),
     path('pendientes/',include('apps.pendientes.urls')),
     path('', LoginView.as_view(template_name='sistema/index.html'), name="login"),
+    path('reset/password_reset', PasswordResetView.as_view(template_name='registros/password_reset_form.html', html_email_template_name='registros/password_reset_email.html'), name='password_reset'), 
+
+    path('reset/password_reset_done', PasswordResetDoneView.as_view(template_name='registros/password_reset_done.html'), 
+    name='password_reset_done'),
+    
+    re_path(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', PasswordResetConfirmView.as_view(template_name='registros/Password_reset_confirm'),
+        name='password_reset_confirm'),
+
+    path('reset/done', PasswordResetCompleteView.as_view(template_name='registros/password_reset_complet.html'),
+    name='password_reset_complete'),
     
 
 ]
