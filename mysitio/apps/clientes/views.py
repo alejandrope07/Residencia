@@ -59,7 +59,7 @@ class EmpleadosList(LoginRequiredMixin, ListView):
 	redirect_field_name = 'redirect_to'
 	model = Empleados
 	template_name = 'sistema/empleados_lista.html'
-	paginate_by = 3
+	paginate_by = 5
 
 class ClientesList(LoginRequiredMixin, ListView):
 	"""docstring for ReportesList"""
@@ -67,7 +67,7 @@ class ClientesList(LoginRequiredMixin, ListView):
 	redirect_field_name = 'redirect_to'
 	model = Clientes
 	template_name = 'sistema/clientes_lista.html'
-	paginate_by = 3
+	paginate_by = 5
 	
 def CargarClientes(request):
 		

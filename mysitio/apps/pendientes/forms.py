@@ -20,7 +20,7 @@ class PendientesForm(forms.ModelForm):
 		]
 		labels = {
 			'fecha': 'Fecha',
-			'descripcion': 'Descripcion',
+			'descripcion': 'Descripción',
 			'asignar': 'Asignar a',
 
 

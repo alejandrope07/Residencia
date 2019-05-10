@@ -2,17 +2,36 @@
 {% block title %} Lista de reportes {% endblock %}
 {% block content %}
 
-<form method="get" action="{% url 'reportes_listar_buscar' %}" id="myform">
-		<input type="text" name="filter" id="filter"/>
-		<input type="submit" name="submit" value="Buscar"/>
-	</form>
+<form method="get" action="{% url 'reportes_listar_buscar' %}" id="myform" >
+	<div class="form-row">
+			<div class="col-md-5 col-md-offset-0">
+	<div class="form-group">
+			
+	    <div class="input-group">    
+				<div class="input-group-addon">				
+							<span class="glyphicon glyphicon-search"></span>	
+				</div>
+				<input type="text" name="filter" id="filter" class="form-control" placeholder="Buscar"/> 
+				
+		</div>
+				
+	</div>
+	</div>
+	</div>
+	<div class="col-md-2 col-md-offset-0">
+		<input type="submit" name="submit" value="Buscar" class="form-control"/>
+	</div>
+</form>
+
+					
 
 
-
+	<p>
 	{% if perms.reportes.add_reportes %}
 	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
 	{% endif %}
-	<br>
+	</p>
+	
 <div class="table-responsive">
 <table class="table table-hover" id="tabla">
 

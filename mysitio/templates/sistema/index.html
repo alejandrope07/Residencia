@@ -4,8 +4,12 @@
 {% block navbar%}
 {% endblock %}
 {% block content %}
+{% load static %}
+<div align="center"><img class="img-responsive" src="{% static 'iconos/logo.jpg' %}" alt="Descripción de la imagen"> </div>
+
 <div class="card">
 	<div class="card-body">
+
 	<h1 align="center">Inicio de sesión</h1>
 	<form method="post">
 	{% csrf_token %}

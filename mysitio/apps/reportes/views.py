@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.core import serializers
-
+from django.core.paginator import Paginator
 from apps.reportes.forms import ReportesForms
 from apps.clientes.models import Clientes
 from apps.reportes.models import Reportes, Empleados
@@ -66,7 +66,7 @@ class ReportesList(LoginRequiredMixin, ListView):
 	redirect_field_name = 'redirect_to'
 	model = Reportes
 	template_name = 'sistema/reportes_lista.html'
-	paginate_by = 3
+	paginate_by = 5
 
 
 class ReportesListS(LoginRequiredMixin, ListView):
@@ -75,7 +75,7 @@ class ReportesListS(LoginRequiredMixin, ListView):
 	redirect_field_name = 'redirect_to'
 	model = Reportes
 	template_name = 'sistema/reportes_lista.html'
-	paginate_by = 3
+	paginate_by = 5
 
 
 	def get_queryset(self):

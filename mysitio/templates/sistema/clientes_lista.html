@@ -3,7 +3,11 @@
 {% block content %}
 
 
-
+<p>
+	{% if perms.reportes.add_reportes %}
+	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'clientes_nuevo' %}" align=right>+ Agregar cliente</a>
+	{% endif %}
+	</p>
 <div class="table-responsive">
 	
 	<br>
