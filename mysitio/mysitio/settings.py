@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-LOGIN_REDIRECT_URL = reverse_lazy('reportes_listar')
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -147,10 +147,3 @@ EMAIL_HOST_PASSWORD = 'osamodamerkurio1'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-1
-2
-3
-4
-5
-6
-7

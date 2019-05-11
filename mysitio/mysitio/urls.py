@@ -25,6 +25,7 @@ urlpatterns = [
     path('usuario/',include('apps.usuarios.urls')),
     path('clientes/',include('apps.clientes.urls')),
     path('bitacora/',include('apps.bitacora.urls')),
+    path('inicio/',include('apps.inicio.urls')),
     path('pendientes/',include('apps.pendientes.urls')),
     path('', LoginView.as_view(template_name='sistema/index.html'), name="login"),
     path('reset/password_reset', PasswordResetView.as_view(template_name='registros/password_reset_form.html', html_email_template_name='registros/password_reset_email.html'), name='password_reset'), 

@@ -25,7 +25,7 @@ class EmpleadosCrear(LoginRequiredMixin, CreateView):
 	model = Empleados
 	form_class = EmpleadosForms
 	template_name = 'sistema/empleados_form.html'
-	success_url = reverse_lazy('reportes_listar')
+	success_url = reverse_lazy('empleados_lista')
 
 class ClienteEditar(LoginRequiredMixin, UpdateView):
 

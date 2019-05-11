@@ -2,6 +2,7 @@
 {% block title %} Lista de reportes {% endblock %}
 {% block content %}
 {% load admin_urls %}
+<a href="javascript:window.history.back();">&laquo; Volver atrás</a>
 <form method="get" action="{% url 'reportes_listar_buscar' %}" id="myform" >
 	<div class="form-row">
 			<div class="col-md-5 col-md-offset-0">
@@ -65,7 +66,7 @@
 			<td>{{ reportes.falla_reportada  }}</td>
 			<td>{{ reportes.trabajo_realizado  }}</td>
 			<td>{{ reportes.observaciones  }}</td>
-			<td>{{ reportes.total }}</td>
+			<td>${{ reportes.total }}</td>
 			<td>
 				<a class="btn btn-primary" href="{% url 'reportes_ver' reportes.id %}" ><span class="glyphicon glyphicon-eye-open"></span></a>
 				{% if perms.reportes.change_reportes %}

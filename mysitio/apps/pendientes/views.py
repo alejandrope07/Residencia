@@ -20,6 +20,13 @@ class PendientesCrear(LoginRequiredMixin, CreateView):
 	template_name = 'sistema/pendientes_form.html'
 	success_url = reverse_lazy('reportes_listar')
 
+class PendientesDelete(LoginRequiredMixin, DeleteView):
+	"""docstring for ReportesDelete"""
+	login_url = 'login'
+	redirect_field_name = 'redirect_to'
+	model = Pendientes
+	template_name = 'sistema/pendientes_delete.html'
+	success_url = reverse_lazy('pendientes_nuevo')
 
 @login_required(login_url='login')
 def list_and_create(request):

@@ -7,7 +7,7 @@
     {% csrf_token %}
     {% if perms.pendientes.add_pendientes %}
     <button type="submit" class="btn btn-success btn-sm col-md-2 col-md-offset-10 ">Guardar</button>
-    {% endif %}
+    
     <div class="row">
             
         <div class="col-md-6 col-md-offset-0">
@@ -38,7 +38,7 @@
         </div>
 
     </div>
-
+    {% endif %}
 </form>
 
 
@@ -51,6 +51,7 @@
                 <td>Descripción</td>
                 <td>Fecha</td>
                 <td>Asignar</td>
+                <td>Acciones</td>
 
             </tr>
     
@@ -62,11 +63,15 @@
                     <td>{{ pendientes.descripcion  }}</td>
                     <td>{{ pendientes.fecha  }}</td>
                     <td>{{ pendientes.asignar  }}</td>
-                
+                    <td>
+                        {% if perms.pendientes.delete_pendientes %}
+                        <a class="btn btn-danger" href="{% url 'pendientes_eliminar' pendientes.id %}"><span class="glyphicon glyphicon-trash"></span></a>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             {% else %}
-            <h1>No Hay registros</h1>
+            <h1>No hay registro de pendientes</h1>
     
             {% endif %}
         </tbody>
