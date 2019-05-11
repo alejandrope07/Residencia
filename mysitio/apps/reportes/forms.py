@@ -10,6 +10,7 @@ class ReportesForms(forms.ModelForm):
 		model = Reportes
 		fields = [
 			'fecha_recibido',
+			'estado',
 			'id',
 			'cliente',
 			'direccion',
@@ -27,6 +28,7 @@ class ReportesForms(forms.ModelForm):
 		]
 		labels = {
 			'fecha_recibido': 'Fecha de recibido',
+			'estado': 'Estado del reporte',
 			'id': 'Numero de reporte',
 			'cliente': 'Cliente',
 			'direccion': 'Direccion',
@@ -45,6 +47,7 @@ class ReportesForms(forms.ModelForm):
 		
 		widgets = {
 			'fecha_recibido': forms.TextInput(attrs={'class': 'form-control'}),
+			'estado': forms.TextInput(attrs={'class': 'form-control'}),
 			'id': forms.TextInput(attrs={'class': 'form-control'}),
 			'cliente': forms.Select(attrs={'class': 'form-control'}),
 			'direccion': forms.TextInput(attrs={'class': 'form-control'}),

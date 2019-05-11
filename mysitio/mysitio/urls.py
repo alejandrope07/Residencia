@@ -19,7 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin1'),
     path('equipo/',include('apps.equipos.urls')),
     path('reportes/',include('apps.reportes.urls')),
     path('usuario/',include('apps.usuarios.urls')),

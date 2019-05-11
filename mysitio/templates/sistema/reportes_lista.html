@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% block title %} Lista de reportes {% endblock %}
 {% block content %}
-
+{% load admin_urls %}
 <form method="get" action="{% url 'reportes_listar_buscar' %}" id="myform" >
 	<div class="form-row">
 			<div class="col-md-5 col-md-offset-0">
@@ -18,7 +18,7 @@
 	</div>
 	</div>
 	</div>
-	<div class="col-md-2 col-md-offset-0">
+	<div class="col-md-3 col-md-offset-0">
 		<input type="submit" name="submit" value="Buscar" class="form-control"/>
 	</div>
 </form>
@@ -31,8 +31,8 @@
 	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'reportes_nuevo' %}" align=right>+ Agregar reporte</a>
 	{% endif %}
 	</p>
-	
-<div class="table-responsive">
+	<br>
+<div class="table-responsive col-md-12">
 <table class="table table-hover" id="tabla">
 
 		

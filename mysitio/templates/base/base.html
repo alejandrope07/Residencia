@@ -20,7 +20,7 @@
 
 {% endblock %}
 		
-		
+{% load admin_urls %}		
 
 <div class="container">
 
@@ -110,7 +110,14 @@
 		                        	<li class="dropdown">
 		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span>Opciones<span class="caret"></span></a>
 		                        		<ul class="dropdown-menu" role="menu">
+												
+												<li>
+												<a href={% url "admin:index" %}>Administrar permisos</a>
+												</li>
+												<li>
 												<a href="{% url 'salir' %}">Cerrar sesión</a>
+												</li>
+												
 		                          		</ul>
 		                      		</li>
 		                    	</ul>

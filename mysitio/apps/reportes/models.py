@@ -19,4 +19,5 @@ class Reportes(models.Model):
 	trabajo_realizado = models.CharField(max_length=80)
 	observaciones = models.CharField(max_length=30)
 	total = models.IntegerField()
+	estado = models.CharField(max_length=30)
 
