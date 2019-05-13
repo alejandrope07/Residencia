@@ -5,7 +5,7 @@
 <form method="post">
 
     {% csrf_token %}
-    {% if perms.pendientes.add_pendientes %}
+{% if perms.pendientes.add_pendientes %}
     <button type="submit" class="btn btn-success btn-sm col-md-2 col-md-offset-10 ">Guardar</button>
     
     <div class="row">
@@ -38,7 +38,7 @@
         </div>
 
     </div>
-    {% endif %}
+{% endif %}
 </form>
 
 

@@ -31,3 +31,6 @@ class Lugar(models.Model):
 	nombre = models.CharField(max_length=30)
 	def __str__(self):
 			return '{}'.format(self.nombre)
+
+class Area(models.Model):
+	nombre = models.CharField(max_length=30)
