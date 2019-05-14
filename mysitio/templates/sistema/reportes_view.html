@@ -3,10 +3,22 @@
 {% block content %}
 
 <form method="post">
-
+		<style type="text/css">
+			@media print {
+				#trabajo_realizado {display:none;}
+				#regresar {display:none;}
+				#direccion {display:none;}
+				#ciudad {display:none;}
+				#telefono {display:none;}
+				#email {display:none;}
+				#realizado {display:none;}
+				#total {display:none;}
+				#cliente {display:none;}
+		}
+		</style>
 	{% csrf_token %}
-	
-	<a class="btn btn-primary" href="{% url 'reportes_listar' %}">Regresar</a>
+	<a href="javascript:window.print()">Imprimir</a>	
+	<a class="btn btn-primary" href="{% url 'reportes_listar' %}" id="regresar">Regresar</a>
 	<div class="row">
 			
 		<div class="col-md-6 col-md-offset-0">
@@ -40,14 +52,14 @@
 
 		</div>
 
-		<div class="col-md-6 col-md-offset-0" row="2">
+		<div class="col-md-6 col-md-offset-0" row="2" id="trabajo_realizado">
 			<div class="form-group">
 				<label for="{{form.trabajo_realizado.name}}">{{form.trabajo_realizado.label}}</label>
 				{{form.trabajo_realizado}}
 			</div>
 		</div>
 
-		<div class="col-md-6 col-md-offset-0">
+		<div class="col-md-6 col-md-offset-0" id="direccion">
 			<div class="form-group">
 				<label for="{{form.direccion.name}}">{{form.direccion.label}}</label>
 				{{form.direccion}}
@@ -59,14 +71,14 @@
 				{{form.falla_reportada}}
 			</div>
 		</div>
-		<div class="col-md-3 col-md-offset-0" >
+		<div class="col-md-3 col-md-offset-0" id="ciudad">
 			<div class="form-group">
                 <label for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
 				        {{form.ciudad}}
 			
 			</div>
 		</div>
-		<div class="col-md-3 col-md-offset-0">
+		<div class="col-md-3 col-md-offset-0" id="telefono">
 			<div class="form-group">
 				<label for="{{form.telefono.name}}">{{form.telefono.label}}</label>
 				<div class="input-group">
@@ -77,7 +89,7 @@
 				</div>	
 			</div>
 		</div>
-		<div class="col-md-6 col-md-offset-0">
+		<div class="col-md-6 col-md-offset-0" id="email">
 			<div class="form-group">
 				<label for="{{form.email.name}}">{{form.email.label}}</label>
 				<div class="input-group">
@@ -89,7 +101,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8 col-md-offset-0">
+		<div class="col-md-8 col-md-offset-0" id="realizado">
 			<div class="form-group">
 				<label for="{{form.realizado.name}}">{{form.realizado.label}}</label>
 				{{form.realizado}}
@@ -113,7 +125,7 @@
 				{{form.estado}}
 			</div>
 		</div>
-		<div class="col-md-4 col-md-offset-0">
+		<div class="col-md-4 col-md-offset-0" id="total">
 			<div class="form-group">
 
 				<label for="{{form.total.name}}">{{form.total.label}}</label>
