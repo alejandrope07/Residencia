@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% block title %} Bitacora {% endblock %}
+{% block content %}
+
+<p>
+	{% if perms.equipo.add_equipo %}
+	<a class="btn btn-success btn-sm col-md-offset-10" href="{% url 'bitacoras_nuevo' %}" align=right>+ Agregar pieza</a>
+	{% endif %}
+	</p>
+
+
+<div class="table-responsive">
+<table class="table table-hover">
+	<thead>
+		<tr class="info">
+			<td>#</td>
+			<td>Fecha</td>			
+			<td>Modelo</td>
+			<td>Area</td>
+			<td>Serie</td>
+            <td>Pieza cambiada</td>
+            <td>No serie pieza nueva</td>
+            <td>Motivo</td>
+			<td>Acciones</td>
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for bitacora in object_list %}
+		<tr>
+			<td>{{ bitacora.id }}</td>
+			<td>{{ bitacora.fecha  }}</td>
+			<td>{{ bitacora.modelo  }}</td>
+			<td>{{ bitacora.area  }}</td>
+            <td>{{ bitacora.serie  }}</td>
+            <td>{{ bitacora.pieza_cambiada }}</td>
+            <td>{{ bitacora.serie_piezan  }}</td>
+            <td>{{ bitacora.motivo  }}</td>
+			<td>
+
+			</td>
+
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No Hay Productos</h1>
+
+		{% endif %}
+	</tbody>
+
+
+</table>
+</div>
+
+
+{% endblock %}

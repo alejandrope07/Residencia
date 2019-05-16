@@ -62,4 +62,35 @@
 	
 	<button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+
+<script>
+	
+    $('#id_fecha').datepicker({
+        format: "dd/mm/yyyy",
+		autoclose: true,
+		todayBtn: true,
+		todayHighlight: true,
+		language: 'es'
+    });
+
+
+</script>
+<script>
+	$(document).ready(function(){
+		var f = new Date();
+		var fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+		var $estado = "iniciado";
+		document.getElementById('id_fecha').value=fecha;
+		document.getElementById('id_modelo').placeholder="Modelo";
+		document.getElementById('id_serie').placeholder="Serie";
+		document.getElementById('id_area').placeholder="Área";
+		document.getElementById('id_pieza_cambiada').placeholder="Pieza cambiada";
+		document.getElementById('id_serie_piezan').placeholder="No serie de la pieza";
+		document.getElementById('id_motivo').placeholder="Motivo";
+
+
+	});
+
+</script>
 {% endblock %}
+

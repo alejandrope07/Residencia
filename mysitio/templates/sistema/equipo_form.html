@@ -16,12 +16,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-md-offset-0">
-			<div class="form-group">
-				<label for="{{form.cantidad.name}}">{{form.cantidad.label}}</label>
-				{{form.cantidad}}
-			</div>
-		</div>
 
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
@@ -39,26 +33,19 @@
 
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
-				<label for="{{form.proveedor.name}}">{{form.proveedor.label}}</label>
-				{{form.proveedor}}
+				<label for="{{form.area.name}}">{{form.area.label}}</label>
+				{{form.area}}
 			</div>
 		</div>
 
 		<div class="col-md-6 col-md-offset-0">
 			<div class="form-group">
-				<label for="{{form.cliente.name}}">{{form.cliente.label}}</label>
-				{{form.cliente}}
-			</div>
-		</div>
-
-		<div class="col-md-6 col-md-offset-0">
-			<div class="form-group">
-				<label for="{{form.precio.name}}">{{form.precio.label}}</label>
+				<label for="{{form.costo.name}}">{{form.costo.label}}</label>
 				<div class="input-group">    
 						<div class="input-group-addon">   
 								<span class="glyphicon glyphicon-usd"></span>
 						</div> 
-						{{form.precio}}
+						{{form.costo}}
 				</div>		
 			</div>
 		</div>
@@ -84,12 +71,10 @@
 		var f = new Date();
 		var fecha = f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
 		document.getElementById('id_fecha_recibido').value=fecha;
-		document.getElementById('id_cantidad').placeholder="cantidad del producto";
 		document.getElementById('id_nombre').placeholder="Nombre del producto";
 		document.getElementById('id_descripcion').placeholder="Descripción del producto";
-		document.getElementById('id_proveedor').placeholder="proveedor";
-		document.getElementById('id_cliente').placeholder="cliente";
-		document.getElementById('id_precio').placeholder="Precio total del producto";
+		document.getElementById('id_area').placeholder="Área";
+		document.getElementById('id_costo').placeholder="Costo del producto";
 
 
 	});
