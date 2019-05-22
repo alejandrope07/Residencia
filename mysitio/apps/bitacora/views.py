@@ -13,7 +13,7 @@ class BitacoraCrear(CreateView):
 	model = Bitacora
 	form_class = BitacoraForm
 	template_name = 'sistema/bitacora_form.html'
-	success_url = reverse_lazy('reportes_listar')
+	success_url = reverse_lazy('bitacoras_lista')
 
 class BitacoraList(LoginRequiredMixin, ListView):
 	"""docstring for ReportesList"""
